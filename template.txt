@@ -1,0 +1,91 @@
+#include <bits/stdc++.h>
+using namespace std;
+template <class T>
+
+void sort(T a[], int n)
+{
+    int i, j, min;
+    T temp;
+    for (int i = 0; i < n-1; i++)
+    {
+        min = i;
+        for (int j = i + 1; j < n; j++)
+        {
+            if (a[j] < a[min])
+            {
+                min = j;
+            }
+        }
+        if (min != i)
+        {
+            temp = a[i];
+            a[i] = a[min];
+            a[min] = temp;
+        }
+    }
+    cout << "Sorted elements are :- " << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cout << a[i] << "\t";
+    }
+    cout << endl;
+    cout<<" \n";
+}
+
+int main()
+{
+    int n, i, ch;
+    int a[100];
+    float b[100];
+    do 
+    {
+        cout << "\nMENU :- " << endl;
+        cout << "Selection Sort using templates: " << endl;
+        cout << "1 = Sort Integers." << endl;
+        cout << "2 = Sort Floating point numbers." << endl;
+        cout << "3 = Exit" << endl;
+        cout << " " << endl;
+        cout<<"Enter Your Choice : ";
+        cin >> ch;
+
+        switch(ch)
+        {
+            case 1:
+            cout << "\nSorting Integers :- " << endl;
+            cout << "Enter number of integers to sort : ";
+            cin >> n;
+            cout << "Enter the numbers : " ;
+
+            for (int i = 0; i < n; i++)
+            {
+                cin >> a[i];
+            }
+            
+            sort(a, n);
+            break;
+            
+            case 2:
+            cout << "\nSorting floating point numbers :- " << endl;
+            cout << "Enter number of floating point numbers to sort : ";
+            cin >> n;
+            cout << "Enter the numbers : ";
+
+            for (int i = 0; i < n; i++)
+            {
+                cin >> b[i];
+            }
+
+            sort(b, n);
+            break;
+
+            case 3:
+            cout<<"\nThank You :- ";
+            exit(0);
+            break;
+        }
+    }
+    while(ch != 3);
+    return 0;
+}
+
+
